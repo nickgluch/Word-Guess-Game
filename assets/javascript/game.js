@@ -21,13 +21,23 @@ var placeHolder = '_ ';
 
 
 
+function keyHandler() {
+    this.onkeydown = null;
 
-
-
-
-document.onkeyup = function () {
     for (i = 0; i < breedToGuessPlaceholder.length; i++) {
         document.getElementById("breedToGuess").append(placeHolder);
+
+    };
+
+
+};
+
+document.onkeydown = keyHandler;
+
+document.onkeyup = function () {
+    this.onkeydown = keyHandler;
+    keyHandler = null;
+};
 
 
 
